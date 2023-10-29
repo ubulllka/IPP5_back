@@ -1,28 +1,32 @@
 package config
 
 import (
+	// "database/sql"
 	"example/back/model"
-	"fmt"
+	// "fmt"
+	"os"
+	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
-const (
-	// host			= "localhost"
-	port			= 5432
-	// user			= "postgres"
-	// password	= "1234"
-	dbName		= "ipp5"
 
-	host			= "dpg-ckvd8pbamefc73fjaheg-a"
-	user			= "user"
-	password	= "TIPiiDOOYXtXpVcbWDfqtR8hM3j9ZuBV"
-)
+
 
 var DB *gorm.DB
 
 func DatabaseConnection() {
-	sqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbName)
+	godotenv.Load()
+	var (
+		// host			= "localhost"
+		// port			= 5432
+		// user			= "postgres"
+		// password	= "1234"
+		// dbName		= "ipp5"
+	)
+
+	// sqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbName)
+	sqlInfo := os.Getenv("DB_CONNECT")
 	db, err := gorm.Open(postgres.Open(sqlInfo), &gorm.Config{})
 	if err != nil {
 		panic(err)
