@@ -8,11 +8,15 @@ import (
 )
 
 const (
-	host			= "localhost"
+	// host			= "localhost"
 	port			= 5432
-	user			= "postgres"
-	password	= "1234"
+	// user			= "postgres"
+	// password	= "1234"
 	dbName		= "ipp5"
+
+	host			= "dpg-ckvd8pbamefc73fjaheg-a"
+	user			= "user"
+	password	= "TIPiiDOOYXtXpVcbWDfqtR8hM3j9ZuBV"
 )
 
 var DB *gorm.DB
