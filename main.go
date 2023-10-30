@@ -19,5 +19,5 @@ func main() {
     router.Use(cors.New(corsConfig))
     config.DatabaseConnection()
     routes.ContactRouter(router)
-    router.Run(os.Getenv("URL_BACK"))
+    router.Run(":80")
 }
